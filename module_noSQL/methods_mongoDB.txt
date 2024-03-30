@@ -1,0 +1,183 @@
+// criando ou selecionando o database viagens 
+use viagens; 
+
+// criando as collections dentro do bd
+db.createCollection("users")
+db.createCollection("destinations")
+
+
+// Inserindo um document
+db.users.insertOne(
+    {   
+        "nome": "nome",
+        "data_nascimento": "0000-00-00",
+        "email": "rafael@gmail.com",
+        "endereco": "Rua dos Sabias, 123 - Limeira/SP"
+    });
+
+// Inserindo mais de document
+db.users.insertMany([
+    {   
+        "nome": "Rafael",
+        "idade": 20,
+        "email": "rafael@gmail.com",
+        "endereco": "Rua dos Sabias, 123 - Limeira/SP"
+    },
+    {   
+        "nome": "De Rafael",
+        "idade": 21,
+        "email": "rafaelI@gmail.com",
+        "endereco": "Rua dos Sabias, 123 - Limeira/SP"
+    },
+
+]);
+
+
+//Inserindo mais usuarios
+// Inserir documentos na collection "users"
+db.usuarios.insertMany([{
+    nome: "Rafa",
+    idade: 20,
+    cidade: "Limeira",
+    estado: "SP",
+    endereco: {
+      rua: "Rua dos Sabias",
+      numero: 123,
+      cidade: "Limeira",
+      estado: "SP"
+    }
+  }, {
+    nome: "Maria",
+    idade: 30,
+    cidade: "Rio de Janeiro",
+    estado: "RJ",
+    endereco: {
+      rua: "Rua Secundária",
+      numero: 456,
+      cidade: "Rio de Janeiro",
+      estado: "RJ"
+    }
+},{
+    nome: "Carlos",
+    idade: 20,
+    cidade: "São Paulo",
+    estado: "SP",
+    endereco: {
+      rua: "Rua Principal",
+      numero: 789,
+      cidade: "São Paulo",
+      estado: "SP"
+    }
+  },{
+    nome: "Ana",
+    idade: 35,
+    cidade: "São Paulo",
+    estado: "SP",
+    endereco: {
+      rua: "Avenida Secundária",
+      numero: 1011,
+      cidade: "São Paulo",
+      estado: "SP"
+    }
+    }
+    ,  
+    {
+    nome: "Pedro",
+    idade: 28,
+    cidade: "Belo Horizonte",
+    estado: "MG",
+    endereco: {
+      rua: "Rua Principal",
+      numero: 1314,
+      cidade: "Belo Horizonte",
+      estado: "MG"
+    }
+  }]);
+  
+
+// Método de Pesquisa - (find)
+db.usuarios.find({});
+db.usuarios.find({"nome": "Rafa"});
+db.usuarios.findOne({"nome": "Rafa"});
+db.usuarios.findOneAndUpdate({ nome: "Rafa" }, { $set: { idade: 21 } });
+db.usuarios.findOneAndDelete({ nome: "Rafa" });
+
+// Método de Atualização - (update)
+db.usuarios.updateOne(
+  { nome: "Rafa" },
+  { $set: { idade: 30 } }
+);
+
+db.usuarios.updateMany(
+  { cidade: "Limeira" },
+  { $set: { estado: "SP" } }
+);
+db.usuarios.replaceOne(
+  { nome: "Rafa" },
+  {
+    nome: "John",
+    idade: 27,
+    cidade: "São Paulo",
+    estado: "SP",
+    endereco: {
+      rua: "Avenida Principal",
+      numero: 123
+    }
+  }
+);
+
+// Update Operadores
+// Usando o operador $set para definir o valor de um campo específico
+db.usuarios.updateOne({ nome: "Rafa" }, { $set: { idade: 26 } });
+
+// Usando o operador $inc para incrementar o valor de um campo numérico
+db.usuarios.updateOne({ nome: "Rafa" }, { $inc: { idade: 1 } });
+
+// Usando o operador $rename para renomear um campo existente
+db.usuarios.updateOne({ nome: "Rafa" }, { $rename: { "endereco.rua": "endereco.nomeRua" } });
+
+// Usando o operador $unset para remover um campo específico de um documento
+db.usuarios.updateOne({ nome: "Rafa" }, { $unset: { endereco: "" } });
+
+// Delete
+// Usando o método deleteOne() para excluir o primeiro documento que corresponde ao filtro especificado
+db.usuarios.deleteOne({ nome: "Rafa" });
+
+// Usando o método deleteMany() para excluir todos os documentos que correspondem ao filtro especificado
+db.usuarios.deleteMany({ cidade: "Limeira" });
+
+
+// Operadores Lógicos
+db.usuarios.find({ $and: [{ idade: { $gte: 18 } }, { cidade: "São Paulo" }] });
+
+db.usuarios.find({ $or: [{ idade: { $lt: 18 } }, { cidade: "Rio de Janeiro" }] });
+
+db.usuarios.find({ idade: { $not: { $eq: 25 } } });
+
+// Operadores de Comparação
+db.usuarios.find({ idade: { $eq: 25 } });
+
+db.usuarios.find({ idade: { $ne: 30 } });
+
+db.usuarios.find({ idade: { $gt: 30 } });
+
+db.usuarios.find({ idade: { $gte: 30 } });
+
+db.usuarios.find({ idade: { $lt: 30 } });
+
+db.usuarios.find({ idade: { $lte: 30 } });
+
+db.usuarios.find({ cidade: { $in: ["São Paulo", "Rio de Janeiro"] } });
+
+db.usuarios.find({ cidade: { $nin: ["São Paulo", "Rio de Janeiro"] } });
+
+
+// Projeção
+db.usuarios.find({}, { nome: 1, idade: 1 })
+
+// Ordenação
+db.usuarios.find().sort({ idade: 1 })
+// Limitação
+db.usuarios.find().limit(10)
+// Paginação
+db.usuarios.find().skip(10).limit(5)

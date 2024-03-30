@@ -1,0 +1,47 @@
+{   
+    "_id": "",
+    "nome": "Rafael",
+    "data_nascimento": "2003-10-23",
+    "email": "rafael@gmail.com",
+    "endereco": "Rua dos Sabias, 123 - Limeira/SP"
+}
+// Ou
+{   
+    "_id": "",
+    "nome": "nome",
+    "data_nascimento": "2003-10-23",
+    "email": "rafael@gmail.com",
+    "endereco": {
+        "rua": "Rua dos Sabias",
+        "numero": 123,
+        "cidade": "Limeira",
+        "estado": "SP"
+    }
+}
+// ou
+{   
+    "_id": "",
+    "nome": "nome",
+    "data_nascimento": "2003-10-23",
+    "email": "rafael@gmail.com",
+    "enderecos": [
+        {
+        "rua": "Rua dos Sabias",
+        "numero": 123,
+        "cidade": "Limeira",
+        "estado": "SP"
+        },
+        {
+        "rua": "Rua dos Sabias",
+        "numero": 123,
+        "cidade": "Limeira",
+        "estado": "SP"
+        },
+    ]
+}
+
+{
+    "_id": "",
+    "nome": "nome destino",
+    "descricao": "Descricao do destino"
+}
