@@ -1,0 +1,16 @@
+Inteligência Artificial - É uma área da computação que busca desenvolver sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana.
+
+Aprendizado de Máquina - É uma subárea da IA relacionada ao desenvolvimento de algoritmos e modelos que permitem aos computadores aprender a partir de dados. Além das redes neurais, existem vários tipos de algoritmos de ML como árvore de decisão, vizinho mais próximo, algoritmos estatísticos,  algoritmos bayesianos...
+
+Redes Neurais Artificiais - São um tipo de aprendizado de máquina inspiradas no funcionamento do nosso cérebro. Aqui também temos o conceito de neurônios e da troca de informação entre eles sinapses.
+
+Redes Neurais Profundas - Também conhecido como Deep Learning, são um tipo de rede neural artificial com várias camadas de neurônios entre a entrada e a saída. Cada camada de neurônios é capaz de aprender representações cada vez mais complexas dos dados à medida que avançam na rede, capturando características e padrões de alto nível dos dados de entrada.
+
+IA Generativa - Refere-se a sistemas de IA capazes de gerar novos dados, como imagens, texto ou áudio, que muitas vezes são indistinguíveis de dados reais gerados por pessoas.
+
+Modelos Grandes de Linguagem (LLM) -  São modelos de inteligência artificial projetados para lidar com tarefas de processamento de linguagem natural complexa. Esses modelos são treinados em grandes quantidade de dados textuais e aprendem a entender e gerar texto de forma mais sofisticada.
+
+
+Exemplo Redes Neurais Artificiais
+- Tem uma gaiolinha com dióxido de carbono que atrai o mosquito , juntamente com um fluxo de ar que leva o mosquito para dentro da gaiola, existe um sensor que detecta a frequência de batimento das asas do mosquito e permite a identificação, por exemplo, de mosquitos da dengue, utilizando algoritmos de redes neurais artificiais.
+- dióxido de carbono(CO2) - gás que é liberado durante a respiração e que, em uma quantidade grande, aumenta a possibilidade de receber a picada de um mosquito.
